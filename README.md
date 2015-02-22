@@ -1,38 +1,69 @@
-Role Name
-=========
+eucalyptus-configureOSG
+=======================
 
-A brief description of the role goes here.
+Role to configure Eucalyptus Networking for EDGE
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Eucalyptus Cloud up and running with admin credentials
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+| Parameter | Required | Default | Description
+|--- |--- |--- |---
+| osg_properties | Yes | [] | List containing the properties name and values for your OSG
+| name | Yes | <property name> | Name of the property
+| value | Yes | None | Value of the property
+
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+- JohnPreston.eucalyptus-credentials
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+```
+- hosts: clc
+  roles:
+  - JohnPreston.eucalyptus-configureNetwork
+  vars_files:
+  - availability_zones.yml
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```
+
+The Availability Zone config file should be :
+
+```
+
+instance_dns_servers:
+- "10.1.1.254"
+
+instance_dns_domain: eucalyptus.internal
+
+pub_ips:
+- "10.104.6.1-10.104.6.30"
+
+clusters:
+ - {"Name": "az-01", "MacPrefix": "d0:0d",
+   "Subnet":
+     { "Name": "172.33.0.0",
+       "Subnet": "172.33.0.0",
+       "Netmask": "255.255.0.0",
+       "Gateway": "172.33.255.253"},
+       "PrivateIps": ["172.33.1.1-172.33.5.253"]}
+[```
 
 License
 -------
 
-BSD
+GPLv3
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+John Preston [John Mille]
+

@@ -1,2 +1,7 @@
----
-# defaults file for eucalyptus-configureNetwork
+###########################################################
+#
+# Configuration files & folders
+#
+
+edge_network_config_file: /tmp/network.json
+edge_network_property: cloud.network.network_configuration
