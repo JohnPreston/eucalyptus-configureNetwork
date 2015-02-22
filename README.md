@@ -8,16 +8,6 @@ Requirements
 
 Eucalyptus Cloud up and running with admin credentials
 
-Role Variables
---------------
-
-| Parameter | Required | Default | Description
-|--- |--- |--- |---
-| osg_properties | Yes | [] | List containing the properties name and values for your OSG
-| name | Yes | <property name> | Name of the property
-| value | Yes | None | Value of the property
-
-
 Dependencies
 ------------
 
