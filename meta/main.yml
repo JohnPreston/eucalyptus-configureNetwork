@@ -3,14 +3,7 @@ galaxy_info:
   author: John Mille
   description: Eucalyptus role to configure network post-install
   company: your company (optional)
-  # Some suggested licenses:
-  # - BSD (default)
-  # - MIT
-  # - GPLv2
-  - GPLv3
-  # - Apache
-  # - CC-BY
-  license: license (GPLv3)
+  license: BSD
   min_ansible_version: 1.7
   #
   # Below are all platforms currently available. Just uncomment

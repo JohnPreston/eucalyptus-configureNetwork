@@ -60,7 +60,7 @@ clusters:
 License
 -------
 
-GPLv3
+BSD
 
 Author Information
 ------------------
